@@ -46,9 +46,18 @@ module.exports = {
         // If true, `workbox.routing.registerNavigationRoute()` won't be generated
         // Defaults to `false`
         disableGenerateNavigationRoute: false,
-
+        
+        globDirectory: path.basename(BUILD_PATH),
+        globPatterns: [
+            '**/*.{html,js,css,eot,svg,ttf,woff}'
+        ],
+        globIgnores: [
+            'sw-register.js',
+            '**/*.map'
+        ],
         // URL of appshell page
         // ONLY works in SSR mode
-        appshellUrl: '/appshell'
+        appshellUrl: '/appshell',
+        dontCacheBustUrlsMatching: /\.\w{8}\./
     }
 };
