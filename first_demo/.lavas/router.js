@@ -2,44 +2,44 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
     
-import _15416718951259d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
+import _15420991011339d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
     
 
     
-import _1541671895125f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
+import _1542099101133f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
     
 
     
-import _1541671895125d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
+import _1542099101133d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
     
 
     
-import _154167189512567830448037326425509e44bce7632b7 from '@/pages/Index.vue';
+import _154209910113367830448037326425509e44bce7632b7 from '@/pages/Index.vue';
     
 
 
 let routes = [
     {
         "path": "/appshell",
-        "component": _15416718951259d49a922ebc8a6d77ca82c0a74289b98,
+        "component": _15420991011339d49a922ebc8a6d77ca82c0a74289b98,
         "meta": {},
         "name": "appshell"
     },
     {
         "path": "/detail/:id",
-        "component": _1541671895125f7fc7554d202a317883db2ae067316d3,
+        "component": _1542099101133f7fc7554d202a317883db2ae067316d3,
         "meta": {},
         "name": "detailId"
     },
     {
         "path": "/",
-        "component": _154167189512567830448037326425509e44bce7632b7,
+        "component": _154209910113367830448037326425509e44bce7632b7,
         "meta": {},
         "name": "index"
     },
     {
         "path": "/error",
-        "component": _1541671895125d2462dcf0c7beccd286c658e08187914,
+        "component": _1542099101133d2462dcf0c7beccd286c658e08187914,
         "meta": {},
         "name": "error",
         "alias": "*"
@@ -86,6 +86,22 @@ export function createRouter() {
         routes
     });
 
+
+
+    
+
+    router.beforeEach((to, from, next) => {
+        if (router.app.$store) {
+            if (router.app.$store.state.pageTransition.enable) {
+                
+                let effect = 'fade';
+                
+                router.app.$store.commit('pageTransition/setType', 'fade');
+                router.app.$store.commit('pageTransition/setEffect', effect);
+            }
+        }
+        next();
+    });
 
 
     return router;
