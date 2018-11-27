@@ -1,0 +1,35 @@
+{
+    "buildVersion": 1543287803241,
+    "build": {
+        "ssr": false,
+        "publicPath": "/",
+        "compress": false,
+        "cssExtract": false
+    },
+    "middleware": {
+        "all": [],
+        "server": [],
+        "client": []
+    },
+    "router": {
+        "mode": "history",
+        "base": "/",
+        "pageTransition": {
+            "type": "slide",
+            "transitionClass": "slide"
+        }
+    },
+    "errorHandler": {
+        "defaultErrorMessage": "Internal Server Error",
+        "showRealErrorMessage": false,
+        "errorPath": "/error"
+    },
+    "serviceWorker": {
+        "enable": true,
+        "swDest": "E:\\Workers\\lavas\\second_demo\\secdemo\\dist\\service-worker.js"
+    },
+    "skeleton": {
+        "enable": true,
+        "asyncCSS": true
+    }
+}
